@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: scaletestservice
+  namespace: kube-system
+  labels:
+    app: scaletestapp
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8083
+  selector:
+    app.kubernetes.io/name: scaletestservice
+    app.kubernetes.io/component: backend
